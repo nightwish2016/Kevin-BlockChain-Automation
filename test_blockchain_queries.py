@@ -2,6 +2,7 @@ import pytest
 import allure
 from web3 import Web3
 from web3.exceptions import InvalidAddress, BlockNotFound, Web3TypeError, Web3RPCError
+from decimal import Decimal
 
 
 @allure.epic("Blockchain QA Testing")
@@ -199,7 +200,7 @@ class TestCronosGetBalance:
         print(f"ETH balance for address {address}: {balance_ether}")
         assert balance_ether > 0, "Ether balance should be positive"
         # from_wei method returns decimal.Decimal type
-        from decimal import Decimal
+        
         assert isinstance(balance_ether, ( float, Decimal)), \
             f"Ether balance should be numeric, got {type(balance_ether)}"
 
