@@ -15,15 +15,15 @@ def test_internet_connectivity():
     try:
         # Test DNS resolution
         socket.gethostbyname('google.com')
-        print("✓ DNS resolution works")
+        print("[OK] DNS resolution works")
         
         # Test HTTP connectivity
         response = requests.get('http://httpbin.org/status/200', timeout=10)
         if response.status_code == 200:
-            print("✓ HTTP connectivity works")
+            print("[OK] HTTP connectivity works")
             return True
     except Exception as e:
-        print(f"✗ Internet connectivity failed: {e}")
+        print(f"[FAIL] Internet connectivity failed: {e}")
         return False
 
 
@@ -40,7 +40,7 @@ def test_cronos_connectivity():
         
         # Test DNS resolution for Cronos
         ip = socket.gethostbyname(host)
-        print(f"✓ DNS resolution for {host}: {ip}")
+        print(f"[OK] DNS resolution for {host}: {ip}")
         
         # Test TCP connection
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -49,14 +49,14 @@ def test_cronos_connectivity():
         sock.close()
         
         if result == 0:
-            print(f"✓ TCP connection to {host}:{port} successful")
+            print(f"[OK] TCP connection to {host}:{port} successful")
         else:
-            print(f"✗ TCP connection to {host}:{port} failed")
+            print(f"[FAIL] TCP connection to {host}:{port} failed")
             return False
             
         # Test HTTP/HTTPS request
         response = requests.get(cronos_url, timeout=30)
-        print(f"✓ HTTP request successful: {response.status_code}")
+        print(f"[OK] HTTP request successful: {response.status_code}")
         
         # Test JSON-RPC endpoint
         rpc_data = {
@@ -76,17 +76,17 @@ def test_cronos_connectivity():
         if rpc_response.status_code == 200:
             result = rpc_response.json()
             if 'result' in result:
-                print(f"✓ JSON-RPC call successful: block number {result['result']}")
+                print(f"[OK] JSON-RPC call successful: block number {result['result']}")
                 return True
             else:
-                print(f"✗ JSON-RPC call failed: {result}")
+                print(f"[FAIL] JSON-RPC call failed: {result}")
                 return False
         else:
-            print(f"✗ JSON-RPC request failed: {rpc_response.status_code}")
+            print(f"[FAIL] JSON-RPC request failed: {rpc_response.status_code}")
             return False
             
     except Exception as e:
-        print(f"✗ Cronos connectivity failed: {e}")
+        print(f"[FAIL] Cronos connectivity failed: {e}")
         return False
 
 
@@ -121,14 +121,14 @@ def main():
     
     print("\n=== Summary ===")
     if internet_ok and cronos_ok:
-        print("✓ All network tests passed")
+        print("[OK] All network tests passed")
         sys.exit(0)
     elif internet_ok:
-        print("⚠ Internet works but Cronos testnet is unreachable")
+        print("[WARN] Internet works but Cronos testnet is unreachable")
         print("This may be due to firewall rules or proxy settings")
         sys.exit(1)
     else:
-        print("✗ No internet connectivity detected")
+        print("[FAIL] No internet connectivity detected")
         print("Check network settings, firewall, and proxy configuration")
         sys.exit(2)
 
