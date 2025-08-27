@@ -148,8 +148,11 @@ pytest -m regression --alluredir=allure-results-regression
 
 Detailed test case descriptions are available in the following documents:
 
-- **Smart Contract Tests**: `test_smart_contract_cases.md` - Contains detailed explanations of all 13 smart contract test cases
-- **Blockchain Query Tests**: `test_blockchain_queries_cases.md` - Contains detailed explanations of all 13 blockchain query test cases
+- **Blockchain Query Tests**:  https://github.com/nightwish2016/Kevin-BlockChain-Automation/blob/main/TC_Description/test_blockchain_queries_cases.md - Contains detailed explanations of all 13 blockchain query test cases
+
+- **Smart Contract Tests**: https://github.com/nightwish2016/Kevin-BlockChain-Automation/blob/main/TC_Description/test_smart_contract_cases.md  - Contains detailed explanations of all 13 smart contract test cases
+
+  
 
 Each document provides:
 
