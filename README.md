@@ -181,6 +181,10 @@ The project uses pytest markers to organize tests:
 
 ## Jenkins Integration
 
+### **Jenkins URL:**
+
+https://29a048e3c411.ngrok-free.app/view/BlockChain/ (**host on my local laptop,The address will be changed once I restarted my laptop**)
+
 ### Jenkins Jobs and Build Parameters
 
 ![Jenkins Jobs](https://kevinbucket2020.oss-cn-hangzhou.aliyuncs.com/jenkinsScreenShot/jobs.png)
