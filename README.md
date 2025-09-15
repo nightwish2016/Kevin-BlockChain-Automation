@@ -144,6 +144,10 @@ pytest -m regression --alluredir=allure-results-regression
 
 
 
+## How to get balance for test account
+
+Create test accounts in MetaMask and get balance fromhttps://cronos.org/faucet 
+
 ## Test Case Documentation
 
 Detailed test case descriptions are available in the following documents:
@@ -183,7 +187,7 @@ The project uses pytest markers to organize tests:
 
 ### **Jenkins URL:**
 
-  https://6c90943c87b5.ngrok-free.app/view/BlockChain/ (**host on my local laptop,The address will be changed once I restarted my laptop**)
+ https://fc32c862b3c5.ngrok-free.app/view/BlockChain/ (**host on my local laptop,The address will be changed once I restarted my laptop**)
 
 ### Jenkins Jobs and Build Parameters
 
